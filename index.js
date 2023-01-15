@@ -92,5 +92,9 @@ app.post('/api/persons', (req, res)=>{
         res.send("Please provide both a name and number for your new person")
     }
 })
+const server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+const server_host = process.env.YOUR_HOST || '0.0.0.0';
+app.listen(server_port, server_host, function() {
+    console.log('Listening on port', server_port);
+});
 
-app.listen(PORT, ()=>console.log('Listening on port ', PORT))
