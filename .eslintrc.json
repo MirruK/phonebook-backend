@@ -1,0 +1,19 @@
+{
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false
+    },
+    "ignorePatterns": [
+        "package-lock.json",
+        "**/node_modules/**",
+        "/build/**",
+        "/built/**",
+        "/tests/**",
+        "/lib/**",
+        "/src/lib/*.generated.d.ts",
+        "/scripts/**/*.js",
+        "/scripts/**/*.d.*",
+        "/internal/**",
+        "/coverage/**"
+]
+}
