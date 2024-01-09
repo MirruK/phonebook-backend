@@ -91,7 +91,7 @@ app.post('/api/persons', (req, res) => {
     if (validationError) {
         res.status(400);
         console.log(`Validation error: ${validationError}`);
-        res.send(validationError).end();
+        res.send(validationError.toString()).end();
         return;
     }
     console.log('POST request to persons inbound');
