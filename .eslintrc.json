@@ -1,19 +1,41 @@
 {
-    "parser": "@babel/eslint-parser",
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true    },
+    "extends": "eslint:recommended",
     "parserOptions": {
-        "requireConfigFile": false
+        "sourceType" : "module",
+        "ecmaVersion": "latest"
     },
-    "ignorePatterns": [
-        "package-lock.json",
-        "**/node_modules/**",
-        "/build/**",
-        "/built/**",
-        "/tests/**",
-        "/lib/**",
-        "/src/lib/*.generated.d.ts",
-        "/scripts/**/*.js",
-        "/scripts/**/*.d.*",
-        "/internal/**",
-        "/coverage/**"
-]
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error"
+        ],
+        "eqeqeq": "error",
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": [
+            "error", 
+            "always"
+        ],
+        "arrow-spacing": [
+            "error", 
+            {
+                "before": true,
+                "after": true
+            }
+        ]
+    }
 }

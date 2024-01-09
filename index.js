@@ -21,7 +21,7 @@ connect(URI)
 
 const app = express();
 
-token('postRes', (req, res) => {
+token('postRes', (req) => {
     return req.method === 'POST'
         ? JSON.stringify(req.body)
         : 'Not a POST request';
@@ -35,15 +35,11 @@ app.use(
         ':method :url :status :res[content-length] - :response-time ms  POST :postRes',
     ),
 );
-app.get('/info', (req, res) => {
-    console.log('GET request for info inbound');
-    const infoObj = {
-        personsLength: persons.persons.length,
-        time: new Date(),
-    };
+app.get('/info', async (req, res) => {
+    const numberOfPersons = await Person.countDocuments();
     res.send(
-        `<div>Phonebook has info for ${infoObj.personsLength} people. <br> ${infoObj.time}</div>`,
-    );
+        `<div>Phonebook has info for ${numberOfPersons} people. <br> ${new Date()}</div>`,
+    ).end();
 });
 
 app.get('/api/persons', (req, res) => {
